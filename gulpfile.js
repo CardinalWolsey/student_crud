@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var webpack = require('webpack-stream');
 var minifyCss = require('gulp-minify-css');
 var concatCss = require('gulp-concat-css');
-var gulpWatch = require('gulp-watch');
 
 gulp.task('static:dev', function() {
   gulp.src('app/**/*.html')

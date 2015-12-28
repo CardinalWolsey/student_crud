@@ -2,44 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Student Wrangling</title>
+  <title>Student Registration Form</title>
   <link rel="stylesheet" type="text/css" href="styles.min.css">
 </head>
 <body data-ng-app="StudentApp">
-  <h1>This is my angular crud ... for students</h1>
+  <h2>Student Registration:</h2>
   <main data-ng-controller="StudentsController" data-ng-init="getAll()">
     <form name="newStudentForm" data-ng-submit="create(newStudent)">
-      <h2>New Student:</h2>
-      <label for="newStudentName">Name: </label>
-      <input type="text" id="newStudentName" required data-ng-model="newStudent.name">
+      <h3>New Student:</h3>
+      <label for="newStudentFirstName">First Name: </label>
+      <input type="text" id="newStudentFirstName" required data-ng-model="newStudent.firstName">
 
-      <label for="newStudentColor">Color: </label>
-      <input type="text" id:="newStudentColor" data-ng-model="newStudent.color" placeholder="rainbow">
+      <label for="newStudentLastName">Last Name: </label>
+      <input type="text" id:="newStudentLastName" data-ng-model="newStudent.lastName">
 
-      <label for="newStudentSpecies">Species: </label>
-      <input type="text" id="newStudentSpecies" data-ng-model="newStudent.species">
+      <label for="newStudentCourse">Course: </label>
+      <input type="text" id="newStudentCourse" data-ng-model="newStudent.course" placeholder="Navajo Cultural Arts">
 
-      <button type="submit" data-ng-disabled="newStudentForm.$invalid">Create New Student!!!</button>
+      <label for="newStudentEmail">Email: </label>
+      <input type="text" id="newStudentEmail" data-ng-model="newStudent.email" placeholder="name@example.com">
+
+      <button type="submit" data-ng-disabled="newStudentForm.$invalid">Create Student In Database</button>
     </form>
+
     <ul id="studentlist">
       <li data-ng-repeat="student in students">
-        {{student.name}}
+        {{student.firstName}} {{student.lastName}} can be contacted at {{student.email}}.
+
         <form name="studentForm{{student._id}}" data-ng-submit="update(student)" data-ng-if="student.editing">
-          <h2>New Student:</h2>
-          <label for="studentName{{student._id}}">Name: </label>
-          <input type="text" id="studentName{{student._id}}" required data-ng-model="student.name">
+          <h2>Student EditingForm:</h2>
+          <label for="studentFirstName{{student._id}}">First Name: </label>
+          <input type="text" id="studentFirstName{{student._id}}" required data-ng-model="student.firstName">
 
-          <label for="studentColor{{student._id}}">Color: </label>
-          <input type="text" id:="studentColor{{student._id}}" data-ng-model="student.color" placeholder="rainbow">
+          <label for="studentLastName{{student._id}}">Last Name: </label>
+          <input type="text" id:="studentLastName{{student._id}}" required data-ng-model="student.lastName">
 
-          <label for="studentSpecies{{student._id}}">Species: </label>
-          <input type="text" id="studentSpecies{{student._id}}" data-ng-model="student.species">
+          <label for="studentCourse{{student._id}}">Course: </label>
+          <input type="text" id="studentCourse{{student._id}}" required data-ng-model="student.course">
 
-          <button type="submit">Place Student In Student Witness Protection</button>
-          <button data-ng-click="student.editing = false">This Student Does Not Deserve Protection</button>
+          <label for="studentEmail{{student._id}}">Email: </label>
+          <input type="text" id="studentEmail{{student._id}}" required data-ng-model="student.email">
+
+          <button type="submit">Update Student</button>
+          <button data-ng-click="student.editing = false">Cancel editing</button>
         </form>
-        <button data-ng-if="!student.editing" data-ng-click="student.editing = true">This Student has seen too much!  New identity!</button>
-        <button data-ng-if="!student.editing" data-ng-click="remove(student)">Murdering Students</button>
+
+        <button data-ng-if="!student.editing" data-ng-click="student.editing = true">Edit Student Info</button>
+        <button data-ng-if="!student.editing" data-ng-click="remove(student)">Remove Student from database</button>
       </li>
     </ul>
 

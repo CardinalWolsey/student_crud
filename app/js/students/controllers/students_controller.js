@@ -26,9 +26,9 @@ module.exports = function(app) {
       student.editing = false;
       $http.put('/api/students/' + student._id, student)
         .then(function(res) {
-          console.log('this student has a new identity (placed in student witness protection');
+          console.log('Student has been updated');
         }, function(err) {
-          $scope.errors.push('could not get student: ' + student.name + ' to student trial');
+          $scope.errors.push('could not get student: ' + student.firstName + ' ' + student.lastName);
           console.log(err.data);
         });
     };
@@ -37,7 +37,7 @@ module.exports = function(app) {
       $scope.students.splice($scope.students.indexOf(student), 1);
       $http.delete('/api/students/' + student._id)
         .then(function(res) {
-          console.log('oh no!  You murdered an Student');
+          console.log('Student was removed from the database');
         }, function(err) {
           console.log(err.data);
           $scope.getAll();
