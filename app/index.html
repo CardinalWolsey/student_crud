@@ -27,7 +27,10 @@
 
     <ul id="studentlist">
       <li data-ng-repeat="student in students">
-        {{student.firstName}} {{student.lastName}} can be contacted at {{student.email}}.
+        First name: {{student.firstName}}<br>
+        Last name: {{student.lastName}}<br>
+        Course: {{student.course}}<br>
+        Email: {{student.email}}
 
         <form name="studentForm{{student._id}}" data-ng-submit="update(student)" data-ng-if="student.editing">
           <h2>Student EditingForm:</h2>
