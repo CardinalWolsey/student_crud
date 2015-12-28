@@ -10,10 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/CardinalWolsey/student_crud.git"
   },
-  "author": "",
+  "author": "spencer.caldwell@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/CardinalWolsey/student_crud/issues"
   },
-  "homepage": "https://github.com/CardinalWolsey/student_crud#readme"
+  "homepage": "https://github.com/CardinalWolsey/student_crud#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "mongoose": "^4.3.4"
+  }
 }
