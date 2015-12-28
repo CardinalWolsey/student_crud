@@ -9,8 +9,9 @@ app.use('/api', studentsRouter);
 
 app.use(express.static(__dirname + '/build'));
 
-app.listen(process.env.PORT || 3000, function() {
-  console.log('server is up and listening on port 3000');
+var port = process.env.PORT || 3000
+app.listen(port, function() {
+  console.log('server is up and listening on port ' + port);
 });
 
 
