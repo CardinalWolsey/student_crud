@@ -1,0 +1,19 @@
+{
+  "name": "student_crud",
+  "version": "0.1.0",
+  "description": "Example of database backed colleciton of students",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CardinalWolsey/student_crud.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CardinalWolsey/student_crud/issues"
+  },
+  "homepage": "https://github.com/CardinalWolsey/student_crud#readme"
+}
