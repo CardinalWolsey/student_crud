@@ -1,0 +1,41 @@
+{
+  "name": "student_crud",
+  "version": "0.1.0",
+  "description": "Example of database backed colleciton of students",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CardinalWolsey/student_crud.git"
+  },
+  "author": "spencer.caldwell@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CardinalWolsey/student_crud/issues"
+  },
+  "homepage": "https://github.com/CardinalWolsey/student_crud#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "mongoose": "^4.3.4"
+  },
+  "devDependencies": {
+    "angular": "^1.4.8",
+    "angular-mocks": "^1.4.8",
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-minify-css": "^1.2.2",
+    "gulp-watch": "^4.3.5",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.16",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.2",
+    "mocha": "^2.3.4",
+    "phantomjs": "^1.9.19",
+    "webpack-stream": "^3.1.0"
+  }
+}

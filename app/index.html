@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" type="text/css" href="styles.min.css">
+</head>
+<body data-ng-app="StudentApp">
+  <h2>Student Registration:</h2>
+  <main data-ng-controller="StudentsController" data-ng-init="getAll()">
+    <form name="newStudentForm" data-ng-submit="create(newStudent)">
+      <h3>New Student:</h3>
+      <label for="newStudentFirstName">First Name: </label>
+      <input type="text" id="newStudentFirstName" required data-ng-model="newStudent.firstName">
+
+      <label for="newStudentLastName">Last Name: </label>
+      <input type="text" id:="newStudentLastName" data-ng-model="newStudent.lastName">
+
+      <label for="newStudentCourse">Course: </label>
+      <input type="text" id="newStudentCourse" data-ng-model="newStudent.course" placeholder="Navajo Cultural Arts">
+
+      <label for="newStudentEmail">Email: </label>
+      <input type="text" id="newStudentEmail" data-ng-model="newStudent.email" placeholder="name@example.com">
+
+      <button type="submit" data-ng-disabled="newStudentForm.$invalid">Create Student In Database</button>
+    </form>
+
+    <ul id="studentlist">
+      <li data-ng-repeat="student in students">
+        {{student.firstName}} {{student.lastName}} can be contacted at {{student.email}}.
+
+        <form name="studentForm{{student._id}}" data-ng-submit="update(student)" data-ng-if="student.editing">
+          <h2>Student EditingForm:</h2>
+          <label for="studentFirstName{{student._id}}">First Name: </label>
+          <input type="text" id="studentFirstName{{student._id}}" required data-ng-model="student.firstName">
+
+          <label for="studentLastName{{student._id}}">Last Name: </label>
+          <input type="text" id:="studentLastName{{student._id}}" required data-ng-model="student.lastName">
+
+          <label for="studentCourse{{student._id}}">Course: </label>
+          <input type="text" id="studentCourse{{student._id}}" required data-ng-model="student.course">
+
+          <label for="studentEmail{{student._id}}">Email: </label>
+          <input type="text" id="studentEmail{{student._id}}" required data-ng-model="student.email">
+
+          <button type="submit">Update Student</button>
+          <button data-ng-click="student.editing = false">Cancel editing</button>
+        </form>
+
+        <button data-ng-if="!student.editing" data-ng-click="student.editing = true">Edit Student Info</button>
+        <button data-ng-if="!student.editing" data-ng-click="remove(student)">Remove Student from database</button>
+      </li>
+    </ul>
+
+  </main>
+  <script src="/bundle.js"></script>
+</body>
+</html>
