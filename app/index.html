@@ -52,6 +52,9 @@
 
         <button data-ng-if="!student.editing" data-ng-click="student.editing = true">Edit Student Info</button>
         <button data-ng-if="!student.editing" data-ng-click="remove(student)">Remove Student from database</button>
+        <hr data-ng-if="student.editing">
+        <br>
+        <br>
       </li>
     </ul>
 
